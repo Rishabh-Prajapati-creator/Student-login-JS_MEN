@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Enquiry Form</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body >
+    <section class="container">
+        <div class="inner-container">
+            <h1>Student Enquiry Form</h1>
+            <form action="/sign_up" method="post" name="myform" onsubmit="return answer()" >
+
+                <label for="name" class="first">Name : </label> 
+                <input type="text" name="name" id="name" > <br> 
+                <span id="name-error" class="error"></span> <br> <br>
+
+                <label for="email" class="second">Email :</label>
+                <input type="email" name="email" id="email" > <br> 
+                <span id="mail-error" class="error"></span> <br> <br>
+
+                <label for="class" class="third">Class :</label>
+                <input type="text" name="class" id="class" > <br> 
+                <span id="class-error" class="error"></span> <br> <br>
+
+                
+                <label for="number" class="fourth">Number :</label>
+                <input type="text" name="number" id="number" value="+91 " maxlength="14" > <br> 
+                <span id="number-error" class="error"></span> <br> <br>
+
+                <label for="userid" class="fifth">UserId :</label>
+                <input type="text" name="userid" id="userid" > <br> 
+                <span id="userid-error" class="error"></span> <br> <br>
+
+                <label for="password" class="sixth">Password :</label>
+                <input type="password" name="password" id="password" > <br> 
+                <span id="password-error" class="error"></span> <br> <br>
+
+                <label for="conform_password" class="seven">Conform Password :</label>
+                <input type="password" name="conform_password" id="conform_password" > <br>  
+                <span id="conform_password-error" class="error"></span> <br> <br>
+
+                <label for="gender">Gender :</label> 
+                <select name="gender" id="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select> <br>
+
+                
+                <input type="submit" name="submit" id="submit" value="Register">
+            </form>
+        </div>
+    </section>
+
+    <script>
+    function answer() {
+        let x = document.forms["myform"];
+        if (x.elements[0].value == "") {
+            alert("Write your full Name in Full Name Box");
+            document.getElementById("name-error").innerHTML="Error ! write name here. "
+            return false;
+        }
+        else if (x.elements[1].value == "") {
+            alert("Write your email in Email Box");
+            document.getElementById("mail-error").innerHTML="Error! write email here."
+            return false;
+        }
+        else if (x.elements[2].value == "") {
+            alert("Write your class in  class Box");
+            document.getElementById("class-error").innerHTML="Error! write class here."
+            return false;
+        }
+        else if (x.elements[3].value == "") {
+            alert("Write your number in no. Box");
+            document.getElementById("number-error").innerHTML="Error! write number here."
+            return false;
+        }
+        else if (x.elements[4].value == "") {
+            alert("Write your userid in userid Box");
+            document.getElementById("userid-error").innerHTML="Error! write userid here."
+            return false;
+        }
+        else if (x.elements[5].value == "") {
+            alert("Write your password in Password Box");
+            document.getElementById("password-error").innerHTML="Error! write password here."
+            return false;
+        }
+        else if (x.elements[6].value == "") {
+            alert("Write your confirm password in confirm P Box");
+            document.getElementById("conform-password-error").innerHTML="Error! write cpassword here."
+            return false;
+        }
+
+        else if (x.elements[5].value != x.elements[6].value) {
+            alert("Please! check your confirm password");
+            return false;
+        }
+        else {
+            let date = new Date();
+            alert("Form submit Successfully " + date);
+            return true;
+        }
+        
+    }
+</script>
+</body>
+</html>
